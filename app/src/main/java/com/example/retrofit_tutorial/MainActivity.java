@@ -64,7 +64,17 @@ public class MainActivity extends AppCompatActivity {
                             @Override
                             public void run() {
 
-                                startActivity(new Intent(MainActivity.this, DashboardActivity.class).putExtra("data",loginResponse.getP_FirstName()));
+                                SharedPrefManager.getInstance(getApplicationContext()).userLogin(
+                                        loginResponse.getP_ID(),
+                                        loginResponse.getP_FirstName(),
+                                        loginResponse.getP_Lastname(),
+                                        loginResponse.getP_Email(),
+                                        loginResponse.getP_CellNum(),
+                                        loginResponse.getP_Address(),
+                                        loginResponse.getP_Type()
+                                );
+                                startActivity(new Intent(MainActivity.this, UpdateDetails.class));
+
                             }
                         },700);
                     }else if(loginResponse.getError() == "true"){

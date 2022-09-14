@@ -3,7 +3,7 @@ package com.example.retrofit_tutorial;
 public class Loginrequest {
 
     private String P_Email;
-    private String UserPassword;
+    private String Password;
 
     public String getEmail() {
         return P_Email;
@@ -14,10 +14,10 @@ public class Loginrequest {
     }
 
     public String getUserPassword() {
-        return UserPassword;
+        return Password;
     }
 
-    public void setUserPassword(String userPassword) {
-        UserPassword = userPassword;
+    public void setUserPassword(String Password) {
+        Password = Password;
     }
 }
