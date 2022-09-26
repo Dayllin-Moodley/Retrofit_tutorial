@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
                                         loginResponse.getP_Address(),
                                         loginResponse.getP_Type()
                                 );
-                                startActivity(new Intent(MainActivity.this, UpdateDetails.class));
+                                startActivity(new Intent(MainActivity.this, ActListActivity.class));
 
                             }
                         },700);
