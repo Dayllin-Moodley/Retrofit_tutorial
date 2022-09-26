@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if(TextUtils.isEmpty(Email.getText().toString()) /*|| TextUtils.isEmpty(Password.getText().toString())*/){
+                if(TextUtils.isEmpty(Email.getText().toString()) || TextUtils.isEmpty(Password.getText().toString())){
                     Toast.makeText(MainActivity.this,"Email or Password is empty",Toast.LENGTH_LONG).show();
                 }else{
                     //login
@@ -49,9 +49,9 @@ public class MainActivity extends AppCompatActivity {
     public void login(){
         Loginrequest loginrequest = new Loginrequest();
         loginrequest.setEmail(Email.getText().toString());
-        //loginrequest.setUserPassword(Password.getText().toString());
+        loginrequest.setUserPassword(Password.getText().toString());
 
-        Call<LoginResponse> loginResponseCall = ApiClient.getUserService().userLogin(loginrequest.getEmail());
+        Call<LoginResponse> loginResponseCall = ApiClient.getUserService().userLogin(loginrequest.getEmail(),loginrequest.getUserPassword());
         loginResponseCall.enqueue(new Callback<LoginResponse>() {
             @Override
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
